@@ -1,7 +1,7 @@
-// Modules in NodeJS
+// Short Note on `module.exports`
 
-const sayHello = require('./hello.js');
+const myModule = require('./myModule');
 
-sayHello("Rohit");
-sayHello("Pritam")
-sayHello("Amit");
+console.log(myModule.foo);
+myModule.myFunction1(); // logs 'Hello from myFunction1!'
+myModule.myFunction2(); // logs 'Hello from myFunction2!'
