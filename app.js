@@ -1,7 +1,23 @@
-// Short Note on `module.exports`
+// The OS Module
 
-const myModule = require('./myModule');
+const os = require('os');
 
-console.log(myModule.foo);
-myModule.myFunction1(); // logs 'Hello from myFunction1!'
-myModule.myFunction2(); // logs 'Hello from myFunction2!'
+// os.uptime()
+const systemUptime = os.uptime();
+
+// os.userInfo()
+const userInfo = os.userInfo();
+
+// We will store some other information about the OS in this object:
+const otherInfo = {
+  name: os.type(),
+  release: os.release(),
+  totalMem: os.totalmem(),
+  freeMem: os.freemem()
+};
+
+
+// Let's Check The Results:
+console.log(systemUptime);
+console.log(userInfo);
+console.log(otherInfo);
