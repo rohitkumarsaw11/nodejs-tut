@@ -1,11 +1,7 @@
-// Global Variables
+// Modules in NodeJS
 
-// __dirname Global Variable
-console.log(__dirname);
+const sayHello = require('./hello.js');
 
-// __filename Global Variable
-console.log(__filename);
-
-// Define a global variable in NodeJS
-global.myVariable = "Hello World!";
-console.log(myVariable);
+sayHello("Rohit");
+sayHello("Pritam")
+sayHello("Amit");
