@@ -1,18 +1,70 @@
-// The PATH Module
+// The FS Module
 
-const path = require('path');
+const fs = require('fs');
 
-const myPath = '/home/mizig/Projects/node-js-tut/app.js';
+// const data = "\nHi, This is newFile.txt. Appended";
 
-const pathInfo = {
-  fileName: path.basename(myPath),
-  folderName: path.dirname(myPath),
-  fileExtension: path.extname(myPath),
-  absoluteOrNot: path.isAbsolute(myPath),
-  detailInfo: path.parse(myPath)
-};
+// fs.writeFile("./myFolder/myFile.txt", data, {flag: "a"}, (err) => {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
+//   else {
+//     console.log("Written to file successfully.");
+//   }
+// })
 
-console.log(pathInfo);
+// fs.readFile("./myFolder/myFile.txt", {encoding: "utf-8"}, (err, data) => {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
+//   else {
+//     console.log('File read successfully! Here is the data');
+//     console.log(data);
+//   }
+// })
 
-console.log(path.join("grandParentFolder", 'parentFolder', 'child.txt'));
-console.log(path.resolve("grandParentFolder", 'parentFolder', 'child.txt'));
+// try {
+//   // Write file synchronously
+//   fs.writeFileSync('./myFolder/myFileSync.txt', '\nmyFile Sync says Hi! (Appended)', {flag: "a"});
+
+//   console.log("Write operation successful");
+
+//   // Read file synchronously
+//   const fileData = fs.readFileSync('./myFolder/myFileSync.txt', "utf-8");
+//   console.log("Read Operation successful. Here is the data:");
+//   console.log(fileData);
+// }
+// catch (err) {
+//   console.log("Error Occurred");
+//   console.log(err);
+// }
+
+// fs.readdir("./myFolder", (err, files) => {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
+  
+//   console.log("Directory read successfully. Here are the files:");
+//   console.log(files);
+// })
+
+// fs.rename("./myFolder/myFileSync.txt", "./myFolder/myFileASync.txt", (err) => {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
+
+//   console.log("File renamed successfully.");
+// })
+
+fs.unlink("./myFolder/myFileASync.txt", (err) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+
+  console.log("File deleted successfully.");
+})
