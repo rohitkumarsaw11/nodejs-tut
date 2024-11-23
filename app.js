@@ -1,70 +1,33 @@
-// The FS Module
+// Event-Driven Programming
 
-const fs = require('fs');
+const EventEmitter = require('events');
 
-// const data = "\nHi, This is newFile.txt. Appended";
+const myEmitter = new EventEmitter();
 
-// fs.writeFile("./myFolder/myFile.txt", data, {flag: "a"}, (err) => {
-//   if (err) {
-//     console.log(err);
-//     return;
-//   }
-//   else {
-//     console.log("Written to file successfully.");
-//   }
-// })
-
-// fs.readFile("./myFolder/myFile.txt", {encoding: "utf-8"}, (err, data) => {
-//   if (err) {
-//     console.log(err);
-//     return;
-//   }
-//   else {
-//     console.log('File read successfully! Here is the data');
-//     console.log(data);
-//   }
-// })
-
-// try {
-//   // Write file synchronously
-//   fs.writeFileSync('./myFolder/myFileSync.txt', '\nmyFile Sync says Hi! (Appended)', {flag: "a"});
-
-//   console.log("Write operation successful");
-
-//   // Read file synchronously
-//   const fileData = fs.readFileSync('./myFolder/myFileSync.txt', "utf-8");
-//   console.log("Read Operation successful. Here is the data:");
-//   console.log(fileData);
-// }
-// catch (err) {
-//   console.log("Error Occurred");
-//   console.log(err);
+// const sayHello = () => {
+//   console.log("Hello User");
 // }
 
-// fs.readdir("./myFolder", (err, files) => {
-//   if (err) {
-//     console.log(err);
-//     return;
-//   }
-  
-//   console.log("Directory read successfully. Here are the files:");
-//   console.log(files);
-// })
+// const sayHi = () => {
+//   console.log("Hi User");
+// }
 
-// fs.rename("./myFolder/myFileSync.txt", "./myFolder/myFileASync.txt", (err) => {
-//   if (err) {
-//     console.log(err);
-//     return;
-//   }
+// const greetNewYear = () => {
+//   console.log("Happy New Year");
+// }
 
-//   console.log("File renamed successfully.");
-// })
 
-fs.unlink("./myFolder/myFileASync.txt", (err) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
+// myEmitter.on("userJoined", sayHello);
+// myEmitter.on("userJoined", sayHi);
+// myEmitter.on("userJoined", greetNewYear);
 
-  console.log("File deleted successfully.");
-})
+// myEmitter.emit('userJoined');
+
+const greetBirthday = (name, newAge) => {
+  console.log(`Happy Birthday ${name}. You are now ${newAge}`);
+}
+
+myEmitter.on('birthdayEvent', greetBirthday);
+
+// Emitting the birthdayEvent with some extra parameters
+myEmitter.emit('birthdayEvent', 'Rohit', 26);
